@@ -12,49 +12,51 @@ import java.util.ArrayList;
  * @author avila-good-m
  */
 public class BracketStack {
-        private int top;
-        ArrayList<Character> TheS;
-        private String hold;
+        ArrayList<Object> TheS;
     
 // **************** constructor *******************
-    public BracketStack(String in){
-        top = 0;// set top element to 0
-        TheS = new ArrayList<Character>();
-        hold = in;
-        
+    public BracketStack(){
+        TheS = new ArrayList<Object>();
     }// end initialized constructor
     
 //****************** accessors ****************
-    public Object peek(){// start peek
-        System.out.println(TheS.get(top-1));
-        return TheS.get(top-1);// return top element
+    protected Object peek(){// start peek
+//        System.out.println("top" + TheS.get(TheS.size()-1));
+        return TheS.get(TheS.size()-1); // return top element
         
     }// end peek at top element
     
-    public void isEmpty(){
-        System.out.println("Empty: " + TheS.isEmpty());
+    protected boolean isEmpty(){
+        boolean empT = false;
+        if(TheS.isEmpty() == true)
+            empT = true;
+        return empT;
     }// end check if empty
     
     
 //***************** Transformers *******************
 
-    public void push(char in){
-        
-        
-        System.out.println("top = " + top);
-        TheS.add(top, in);// set top of stack
-        top++;
-        
+    protected void push(char in){
+        //System.out.println("top = " + top);
+        TheS.add(in);// set top of stack
         
     }// end push an element on top
     
-    public char pop(){
-        System.out.println("Spot " + (top-1) + " of value " + TheS.get(top-1) + " to be removed");
-        TheS.remove(TheS.get(top-1));//delete top index
+    protected Object pop(){
+        Object popper = null;
         
-        top--; // lower the top of stack
+        if(TheS != null){
+//        System.out.println("Popping " + TheS.get(TheS.size()-1));
         
-        return TheS.get(top-1);
+        popper = TheS.get(TheS.size()-1);
+//        System.out.println("Popper = " + popper);
+        TheS.remove(TheS.get(TheS.size()-1));//delete top index
+        
+//
+//        System.out.println("I am TOP" + TheS.size());
+        }
+        
+        return popper;
     }// end pop an element off\
     
 
