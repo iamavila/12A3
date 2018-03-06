@@ -9,6 +9,6 @@ package A3part2;
  *
  * @author avila-good-m
  */
-public class LLPolyAdd {
+public class AddEmPoly {
     
 }
