@@ -35,10 +35,14 @@ public class Polynomials {
         
         while(strin!= null){
             yellah.add(i, new PolyClass());
-            makeTerms(yellah.get(i).pLL, strin);
+            yellah.get(i).makeTerms(strin);
+//            makeTerms(yellah.get(i).pLL, strin);
+            
+            strin = fin.readLine();// read next line
         }// make polynomial objects, creat terms
-        
-        
+        PolyClass result = new PolyClass();
+        result = AddIt(yellah.get(0), yellah.get(1));
+//        yellah.get(0).makePo(); 
         
         
         
@@ -46,22 +50,6 @@ public class Polynomials {
     }
     
     
-public static void makeTerms(PLL tempPll, String in){
-    String strin;
-    String[] tokens;
-    String delim = "[ ]";
-    
-    tokens = in.split(delim);
-    
-    int i = 0;
-    while(tokens!=null){
-        int co = Integer.parseInt(tokens[i]);
-        int ex = Integer.parseInt(tokens[i+1]);
-        
-        Terms newT = new Terms(co, ex);
-        tempPll.addNode(newT);
-        i+=2;
-    }
-}    
+   
        
 }

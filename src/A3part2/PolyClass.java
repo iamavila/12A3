@@ -5,45 +5,48 @@
  */
 package A3part2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author avila-good-m
  */
 public class PolyClass {
     
-    protected Object ThePo;
+//    protected ArrayList<Integer> ThePo;
     protected PLL pLL;
      //*********************** constructor ******************
     
     public PolyClass(){
-        ThePo = null;
+//        ThePo = null;
         pLL = new PLL();
     }
     
     //************************ Accessors***************************
     
-    public Object getPoly(){
-        return ThePo;
-    }
     
     //************************* Transformers**********************
-    public void makePo(){
-        int i = 0;
-        Object tempData;
+    
+    
+    
+    public void makeTerms(String in){
+    String strin;
+    String[] tokens;
+    String delim = "[ ,]";
+    
+    tokens = in.split(delim);
+    
+    int i = 0;
+    while(i<tokens.length){
+        System.out.println(tokens[i]);
+        int co = Integer.parseInt(tokens[i]);
+        int ex = Integer.parseInt(tokens[i+1]);
         
-        ThePo = "";
-        while(pLL.getData(i) !=null){
-            tempData = pLL.getData(i);
-            System.out.println(tempData);
-            i++;
-        }
-    }
-    public void wherePoly(){
-        
-    }
-    
-    
-    
+        Terms newT = new Terms(co, ex);
+        pLL.insHead(newT);
+        i+=2;
+    }// end while tokens exists
+} 
     
 //    public void creatTerm(int co, int ex){
 //        Terms newT = new Terms(co, ex);
